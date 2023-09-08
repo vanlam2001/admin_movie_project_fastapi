@@ -207,10 +207,10 @@ export const adminRoute = [
     },
 
     // 404 Not Found
-    {
-        url: "*",
-        component: <NotFoundPage></NotFoundPage>
-    }
+    // {
+    //     url: "*",
+    //     component: <NotFoundPage></NotFoundPage>
+    // }
 
 
 
