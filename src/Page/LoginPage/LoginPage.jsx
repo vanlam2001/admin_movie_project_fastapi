@@ -49,8 +49,8 @@ const LoginPage = () => {
             <div className="container mx-auto">
                 <div className="max-w-md mx-auto my-10">
                     <div className="text-center">
-                        <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Sign in</h1>
-                        <p className="text-gray-500 dark:text-gray-400">Sign in to access your account</p>
+                        <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Đăng nhập</h1>
+                        <p className="text-gray-500 dark:text-gray-400">Đăng Nhập Tài Khoản Quản Trị Viên</p>
                     </div>
                     <div className="m-7">
                         <Form initialValues={{
