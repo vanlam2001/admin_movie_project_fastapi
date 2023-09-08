@@ -1,5 +1,5 @@
 import { Form, Input, message } from 'antd';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { localUserServ } from '../../service/localService';
@@ -9,7 +9,7 @@ import { setLoginUser } from '../../toolkit/userSlice';
 
 const LoginPage = () => {
     const dispatch = useDispatch();
-
+    const [errorMessage, setErrorMessage] = useState(null);
 
     let fillForm = () => {
         let info = localUserServ.get();
@@ -36,7 +36,16 @@ const LoginPage = () => {
                 }
             })
             .catch((err) => {
-                message.error("Đăng nhập thất bại sai tài khoản hoặc mật khẩu");
+                if (err.response && err.response.status === 404) {
+                    setErrorMessage('Sai tài khoản hoặc mật khẩu')
+                    message.error('Sai tài khoản hoặc mật khẩu!')
+                } else if (err.response && err.response.status === 403) {
+                    setErrorMessage('Đăng nhập thất bại. Chỉ có quản trị viên mới được đăng nhập')
+                    message.error('Đăng nhập thất bại. Chỉ có quản trị viên mới được đăng nhập!')
+                } else {
+                    setErrorMessage('Lỗi không xác định!');
+                    message.error('Lỗi không xác định!');
+                }
             })
     }
 
