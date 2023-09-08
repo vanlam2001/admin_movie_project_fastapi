@@ -19,6 +19,9 @@ import UpdateCumRapPage from "../Page/AdminCumRapPage/UpdateCumRapPage";
 import AdminLichChieuPage from "../Page/AdminLichChieuPage/AdminLichChieuPage";
 import AddLichChieuPage from "../Page/AdminLichChieuPage/AddLichChieuPage";
 import UpdateLichChieuPage from "../Page/AdminLichChieuPage/UpdateLichChieuPage";
+import { NotFoundPage } from "../Page/NotFoundPage/NotFoundPage";
+
+
 
 const isAuthenticated = () => {
     const userInfo = localUserServ.get();
@@ -201,8 +204,13 @@ export const adminRoute = [
             : (
                 <div> {localUserServ.get() ? "Chỉ có quản trị viên mới có thể sử dụng chức năng này" : "Bạn phải đăng nhập quản trị viên"}</div>
             )
-    }
+    },
 
+    // 404 Not Found
+    {
+        url: "*",
+        component: <NotFoundPage></NotFoundPage>
+    }
 
 
 
