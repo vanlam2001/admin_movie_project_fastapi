@@ -206,7 +206,7 @@ export const adminRoute = [
             )
     },
 
-    404 Not Found
+    // 404 Not Found
     {
         url: "*",
         component: <NotFoundPage></NotFoundPage>
